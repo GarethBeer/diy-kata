@@ -1,6 +1,12 @@
 const { getEmployerRole } = require("../src");
 
 describe("getEmployerRole", () => {
+
+  test('returns a string', () => {
+    const result = getEmployerRole();
+    expect((typeof result)).toBe('string')
+  })
+
   test("returns the employee's role in the company", () => {
     const employees = [{
 
@@ -68,5 +74,27 @@ describe("getEmployerRole", () => {
     
     }]
     expect(getEmployerRole('Alex', employees)).toBe('Sales Associate')
+  });
+  test("returns the employee's role in the company", () => {
+    const employees = [{
+
+      name: 'Thomas',
+    
+      role: 'Developer'
+    
+    }, {
+    
+      name: 'Alex',
+    
+      role: 'Sales Associate'
+    
+    }, {
+    
+      name: 'Simon',
+    
+      role: 'Human Recommended Reading Assistant'
+    
+    }]
+    expect(getEmployerRole('Dave', employees)).toBe('Does not work here')
   });
 });
